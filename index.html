@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Reproductor de Música</title>
+</head>
+<body>
+  <h2>🎵 Mi música desde GitHub Pages</h2>
+
+  <audio id="musica" autoplay loop muted>
+    <source src="mi-musica.mp3" type="audio/mp3">
+    Tu navegador no soporta audio en HTML5.
+  </audio>
+
+  <script>
+    // Al primer clic, se activa el sonido
+    document.addEventListener("click", function() {
+      const audio = document.getElementById("musica");
+      audio.muted = false;
+      audio.play();
+    });
+  </script>
+</body>
+</html>
