@@ -2,25 +2,53 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Mi Reproductor de Música</title>
+  <title>Música de Fondo Interactiva</title>
+  <style>
+    /* Bloque visible para interactuar */
+    #control-música {
+      width: 200px;
+      padding: 15px;
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      border-radius: 10px;
+      cursor: pointer;
+      font-family: Arial, sans-serif;
+      user-select: none;
+      margin: 50px auto;
+    }
+  </style>
 </head>
 <body>
-  <h2>Enjoy! <3</h2>
 
-  <!-- Reproductor de audio visible -->
-  <audio id="musica" controls autoplay loop muted>
-    <source src="mi-musica.mp3" type="audio/mp3">
+  <h2 style="text-align:center;">🎵 Música de Fondo Interactiva</h2>
+
+  <!-- Bloque visible para activar/desactivar música -->
+  <div id="control-música">🔈 Activar Música</div>
+
+  <!-- Reproductor invisible -->
+  <audio id="musica" autoplay loop muted style="display:none;">
+    <source src="https://Whilouz.github.io/Music-Page/House of the memories.mp3" type="audio/mp3">
     Tu navegador no soporta audio en HTML5.
   </audio>
 
   <script>
-    // Al primer clic, se activa el sonido
-    document.addEventListener("click", function() {
-      const audio = document.getElementById("musica");
-      audio.muted = false;
-      audio.play();
+    const audio = document.getElementById("musica");
+    const control = document.getElementById("control-música");
+
+    control.addEventListener("click", () => {
+      if (audio.paused || audio.muted) {
+        audio.muted = false;
+        audio.play();
+        control.textContent = "🔊 Música Activada";
+      } else {
+        audio.pause();
+        control.textContent = "🔈 Activar Música";
+      }
     });
   </script>
+
 </body>
 </html>
+
 
